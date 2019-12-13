@@ -1,86 +1,92 @@
-		var temps = 0.0 ; 
-		var dt ; 
-		var chrono = null ; 
-		var annuaire = null ; 
-		var scene = null;
-		var renderer = null;
-		var camera = null;
+import { PointerLockControls } from "./jsm/controls/PointerLockControls.js";
 
-		var listener = null ;
-		var sound  = null ; 
-		var sound1 = null ; 
- 
-		var controls = null ; 
-		var windowHalfX = window.innerWidth  / 2.0 ; 
-		var windowHalfY = window.innerHeight / 2.0 ; 
+var temps = 0.0;
+var dt;
+var chrono = null;
+var annuaire = null;
+var scene = null;
+var renderer = null;
+var camera = null;
 
-		var pointeur ;
+var listener = null;
+var sound = null;
+var sound1 = null;
 
-		var mouseX = mouseY = 0.0 ; 
+var controls = null;
+var windowHalfX = window.innerWidth / 2.0;
+var windowHalfY = window.innerHeight / 2.0;
 
-		var data ; 
+var pointeur;
 
-		function init(){
-			chrono = new THREE.Clock() ; 
-		
-			annuaire = {} ; 
+var mouseX = (mouseY = 0.0);
 
-			renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			document.body.appendChild(renderer.domElement);
+var data;
 
-			scene = new THREE.Scene() ; 
-			enregistrerDansAnnuaire("scene",scene) ; 
+function init() {
+  chrono = new THREE.Clock();
 
-			camera = new THREE.PerspectiveCamera(70.0, window.innerWidth/window.innerHeight, 0.1, 100.0) ; 
-			camera.position.set(0,1.7,10.0) ; 
-			camera.lookAt(new THREE.Vector3(0.0,1.7,0.0)) ; 
+  annuaire = {};
 
-			listener = new THREE.AudioListener() ; 
-			camera.add(listener) ;
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
 
-			window.addEventListener('resize', function(){
-				windowHalfX = window.innerWidth  / 2.0 ; 
-				windowHalfY = window.innerHeight / 2.0 ; 
-				camera.aspect = window.innerWidth / window.innerHeight ;
-				camera.updateProjectionMatrix() ; 
-				renderer.setSize(window.innerWidth , window.innerHeight) ;
-			}) ;
+  scene = new THREE.Scene();
+  enregistrerDansAnnuaire("scene", scene);
 
-			controls = new KeyboardControls(camera) ; 
-			console.log(controls) ; 
+  camera = new THREE.PerspectiveCamera(
+    70.0,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100.0
+  );
+  camera.position.set(12, 1.7, 0);
+  camera.lookAt(new THREE.Vector3(0.0, 1.7, 0.0));
 
-			window.addEventListener('keydown',   keyDown   ,    false) ;
-			window.addEventListener('keyup',     keyUp     ,    false) ;
-			window.addEventListener('mousemove', mouseMove ,    false) ;
-			window.addEventListener('mousedown', mouseDown ,    false) ;
+  listener = new THREE.AudioListener();
+  camera.add(listener);
 
-			chrono.start() ;
-		} ; 
+  window.addEventListener("resize", function() {
+    windowHalfX = window.innerWidth / 2.0;
+    windowHalfY = window.innerHeight / 2.0;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 
-		function enregistrerDansAnnuaire(nom,objet){
-			annuaire[nom] = objet ; 
-		}
+  controls = new KeyboardControls(camera);
+  console.log(controls);
 
-		function chercherDansAnnuaire(nom,defaut){
-			return (annuaire[nom] || defaut) ; 
-		}
+  window.addEventListener("keydown", keyDown, false);
+  window.addEventListener("keyup", keyUp, false);
+  window.addEventListener("mousemove", mouseMove, false);
+  window.addEventListener("mousedown", mouseDown, false);
 
-		function creerScene(){
-			//scene.add(creerSoleil()) ; 
-			pointeur = creerSphere("pointeur",0.05,16,materiauRouge) ; 
-			scene.add(pointeur) ; 
+  chrono.start();
+}
 
-			//parser() ;
-			chargerDocument() ;  
-			console.log("Fin de création de la scène") ; 
-		}
+function enregistrerDansAnnuaire(nom, objet) {
+  annuaire[nom] = objet;
+}
 
-		function animate(){
-			dt = chrono.getDelta() ; 
-			temps += dt ; 
-			requestAnimationFrame(animate) ; 
-			controls.update(dt) ; 
-			renderer.render(scene, camera) ; 
-		}
+function chercherDansAnnuaire(nom, defaut) {
+  return annuaire[nom] || defaut;
+}
 
+function creerScene() {
+  //scene.add(creerSoleil()) ;
+  pointeur = creerSphere("pointeur", 0.05, 16, materiauRouge);
+  scene.add(pointeur);
+
+  //parser() ;
+  chargerDocument();
+  console.log("Fin de création de la scène");
+}
+
+function animate() {
+  dt = chrono.getDelta();
+  temps += dt;
+  requestAnimationFrame(animate);
+  controls.update(dt);
+  renderer.render(scene, camera);
+}

@@ -1,0 +1,49 @@
+/* 			{"fonc":"placerXYZ", "objet":"wall2", "params":{"x":10.0, "y":0,"z":0}}, 
+			{"fonc":"placerXYZ", "objet":"wall3", "params":{"x":10.0, "y":0,"z":0}}, 
+			{"fonc":"placerXYZ", "objet":"wall4", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"placerXYZ", "objet":"wall5", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"placerXYZ", "objet":"wall6", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"placerXYZ", "objet":"wall7", "params":{"x":10.0, "y":0,"z":0}},
+//			{"fonc":"orienterY", "objet":"wall8", "params":{"angle":1.57}},
+			{"fonc":"placerXYZ", "objet":"wall8", "params":{"x":10.0, "y":0,"z":0}},
+//			{"fonc":"orienterY", "objet":"wall9", "params":{"angle":1.57}}, 
+			{"fonc":"placerXYZ", "objet":"wall9", "params":{"x":10.0, "y":0,"z":0}},
+//			{"fonc":"orienterY", "objet":"wall10", "params":{"angle":1.57}}, 
+			{"fonc":"placerXYZ", "objet":"wall10", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"orienterY", "objet":"wall11", "params":{"angle":1.57}},
+			{"fonc":"placerXYZ", "objet":"wall11", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"orienterY", "objet":"wall12", "params":{"angle":1.57}},
+			{"fonc":"placerXYZ", "objet":"wall12", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"orienterY", "objet":"wall13", "params":{"angle":1.57}},
+			{"fonc":"placerXYZ", "objet":"wall13", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"orienterY", "objet":"wall14", "params":{"angle":1.57}},
+			{"fonc":"placerXYZ", "objet":"wall14", "params":{"x":10.0, "y":0,"z":0}},
+			{"fonc":"orienterY", "objet":"wall15", "params":{"angle":1.57}}, 
+			{"fonc":"placerXYZ", "objet":"wall15", "params":{"x":10.0, "y":0,"z":0}} */
+
+
+			{"fonc":"placerXYZ", "objet":"poster01", "params":{"x":0, "y":1.7,"z":0.3}},
+			{"fonc":"placerXYZ", "objet":"poster02", "params":{"x":2.5, "y":1.7,"z":0.3}},
+
+
+			{"fonc":"placerXYZ", "objet":"texte01", "params":{"x":0, "y":5.0,"z":0.6}},
+
+,
+			{"rel":"parentDe","sujet":"scene","objet":"wall5"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall6"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall7"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall8"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall9"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall10"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall11"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall12"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall13"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall14"},
+			{"rel":"parentDe","sujet":"scene","objet":"wall15"}
+
+
+			{"rel":"parentDe","sujet":"cloison02","objet":"poster01"},
+			{"rel":"parentDe","sujet":"cloison02","objet":"poster02"},
+			{"rel":"parentDe","sujet":"cloison01","objet":"texte01"},
+			{"rel":"parentDe","sujet":"scene","objet":"cloison01"},
+			{"rel":"parentDe","sujet":"scene","objet":"cloison02"},
